@@ -52,7 +52,7 @@ button:disabled{opacity:.6;cursor:wait}
   <a class="brand" href="https://instagram.com/autom8app"><img src="logo.png" alt="AutoM8" width="190" height="104"></a>
   <span class="pill">Launching soon</span>
   <h1>Fewer no-shows.<br><span>A fuller calendar.</span></h1>
-  <p class="sub">Get the free no-show and deposit policy template built for independent detailers. Join the AutoM8 waitlist and be first to know when we launch.</p>
+  <p class="sub">Get the free no-show and deposit policy template built for detailing businesses. Join the AutoM8 waitlist and be first to know when we launch.</p>
 
   <div class="card" id="card">
     <div id="formWrap">
@@ -71,9 +71,9 @@ button:disabled{opacity:.6;cursor:wait}
       <p class="fine">No spam. Just launch news and free tools for detailers. Unsubscribe anytime.</p>
     </div>
     <div class="ok" id="ok">
-      <h2>You're on the list.</h2>
-      <p>Here's your free template. We'll email you when AutoM8 launches.</p>
-      <a class="btn" href="no-show-policy-template.pdf" download>Download the template (PDF)</a>
+      <h2>Check your inbox.</h2>
+      <p>We just sent your free template to <strong id="sentTo">your email</strong>. If you don't see it in a minute, check spam or promotions. We'll email you when AutoM8 launches.</p>
+      <a class="btn" href="no-show-policy-template.pdf" download>Or download it here (PDF)</a>
     </div>
   </div>
 
@@ -82,10 +82,10 @@ button:disabled{opacity:.6;cursor:wait}
 
 <script>
 (function(){
-  var URL_='https://ptdntpxmphgdyuwheeod.supabase.co/rest/v1/waitlist';
+  var URL_='https://ptdntpxmphgdyuwheeod.supabase.co/functions/v1/waitlist-signup';
   var KEY='sb_publishable_eeNAFfFxLPP5_SpmjwEdPQ_rHma4sy7';
   var f=document.getElementById('f'),email=document.getElementById('email'),err=document.getElementById('err'),go=document.getElementById('go');
-  function done(){document.getElementById('formWrap').style.display='none';document.getElementById('ok').style.display='block';try{localStorage.setItem('am8_joined','1')}catch(e){}}
+  function done(v){if(v)document.getElementById('sentTo').textContent=v;document.getElementById('formWrap').style.display='none';document.getElementById('ok').style.display='block';try{localStorage.setItem('am8_joined','1')}catch(e){}}
   try{if(localStorage.getItem('am8_joined')==='1')done()}catch(e){}
   f.addEventListener('submit',function(e){
     e.preventDefault();err.textContent='';
@@ -93,9 +93,10 @@ button:disabled{opacity:.6;cursor:wait}
     var v=email.value.trim();
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)||v.length>254){err.textContent='Please enter a valid email.';return}
     go.disabled=true;go.textContent='Joining...';
-    fetch(URL_,{method:'POST',headers:{'apikey':KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({email:v,source:'join-page'})})
+    fetch(URL_,{method:'POST',headers:{'apikey':KEY,'Content-Type':'application/json'},body:JSON.stringify({email:v,source:'join-page'})})
     .then(function(r){
-      if(r.ok||r.status===409){done();return}
+      if(r.ok){done(v);return}
+      if(r.status===400){err.textContent='Please enter a valid email.';return}
       throw new Error('bad')
     }).catch(function(){
       err.textContent='Something went wrong. Please try again.';
