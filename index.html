@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoM8 | Free No-Show Policy Template for Detailers</title>
+<meta name="description" content="Fewer no-shows. A fuller calendar. Join the AutoM8 waitlist and get a free no-show and deposit policy template for detailers.">
+<meta property="og:title" content="Free No-Show Policy Template for Detailers">
+<meta property="og:description" content="Fewer no-shows. A fuller calendar. Join the waitlist and grab the free template.">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:image" content="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0c;--card:#151517;--line:#2a2a2e;--text:#f4f4f5;--muted:#b4b4bb;--red:#de3035;--red2:#ff4a50}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font-family:Poppins,system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;padding:28px 20px 48px}
+.brand{display:block;text-align:left}
+.brand img{height:104px;width:auto;max-width:100%}
+.pill{display:inline-block;margin:10px 0 14px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:var(--muted)}
+h1{font-size:clamp(32px,9vw,46px);line-height:1.08;letter-spacing:-1.2px;margin:0 0 14px;font-weight:800}
+h1 span{color:var(--red)}
+.sub{color:var(--muted);font-size:16px;margin:0 0 26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.list{list-style:none;padding:0;margin:0 0 18px}
+.list li{display:flex;gap:10px;padding:6px 0;font-size:15px}
+.list li:before{content:"";flex:0 0 18px;height:18px;margin-top:3px;border-radius:50%;background:var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l2.6 2.6L13 6.7' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat}
+form{display:grid;gap:10px}
+label{font-size:13px;color:var(--muted);font-weight:500}
+input[type=email]{width:100%;padding:15px 16px;border-radius:12px;border:1px solid var(--line);background:#0e0e10;color:var(--text);font:inherit;font-size:16px}
+input[type=email]:focus{outline:2px solid var(--red2);outline-offset:1px}
+button,.btn{appearance:none;border:0;border-radius:12px;background:var(--red);color:#fff;font:inherit;font-weight:700;font-size:16px;padding:15px 18px;cursor:pointer;text-align:center;text-decoration:none;display:block}
+button:hover,.btn:hover{background:var(--red2)}
+button:disabled{opacity:.6;cursor:wait}
+.fine{font-size:12px;color:var(--muted);margin:10px 0 0}
+.err{color:#ff8a8e;font-size:14px;min-height:20px;margin:0}
+.hp{position:absolute;left:-9999px;height:0;width:0;opacity:0}
+.ok{display:none;text-align:center}
+.ok h2{margin:4px 0 8px;font-size:24px}
+.ok p{color:var(--muted);margin:0 0 16px}
+.foot{margin-top:34px;text-align:center;color:var(--muted);font-size:13px}
+.foot strong{color:var(--text)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="brand" href="https://instagram.com/autom8app"><img src="logo.png" alt="AutoM8" width="190" height="104"></a>
+  <span class="pill">Launching soon</span>
+  <h1>Fewer no-shows.<br><span>A fuller calendar.</span></h1>
+  <p class="sub">Get the free no-show and deposit policy template built for independent detailers. Join the AutoM8 waitlist and be first to know when we launch.</p>
+
+  <div class="card" id="card">
+    <div id="formWrap">
+      <ul class="list">
+        <li>Ready-to-paste policy wording you can use today</li>
+        <li>Booking confirmation and reminder texts</li>
+        <li>What to say when a customer doesn't show</li>
+      </ul>
+      <form id="f" novalidate>
+        <label for="email">Your email</label>
+        <input id="email" type="email" inputmode="email" autocomplete="email" placeholder="you@yourdetailing.com" required>
+        <input class="hp" type="text" id="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="err" id="err" role="alert"></p>
+        <button id="go" type="submit">Get the free template</button>
+      </form>
+      <p class="fine">No spam. Just launch news and free tools for detailers. Unsubscribe anytime.</p>
+    </div>
+    <div class="ok" id="ok">
+      <h2>You're on the list.</h2>
+      <p>Here's your free template. We'll email you when AutoM8 launches.</p>
+      <a class="btn" href="no-show-policy-template.pdf" download>Download the template (PDF)</a>
+    </div>
+  </div>
+
+  <p class="foot"><strong>AutoM8</strong> &middot; Less admin. More detailing.<br>Follow along on Instagram <a href="https://instagram.com/autom8app" style="color:inherit">@autom8app</a></p>
+</main>
+
+<script>
+(function(){
+  var URL_='https://ptdntpxmphgdyuwheeod.supabase.co/rest/v1/waitlist';
+  var KEY='sb_publishable_eeNAFfFxLPP5_SpmjwEdPQ_rHma4sy7';
+  var f=document.getElementById('f'),email=document.getElementById('email'),err=document.getElementById('err'),go=document.getElementById('go');
+  function done(){document.getElementById('formWrap').style.display='none';document.getElementById('ok').style.display='block';try{localStorage.setItem('am8_joined','1')}catch(e){}}
+  try{if(localStorage.getItem('am8_joined')==='1')done()}catch(e){}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();err.textContent='';
+    if(document.getElementById('website').value){done();return}
+    var v=email.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)||v.length>254){err.textContent='Please enter a valid email.';return}
+    go.disabled=true;go.textContent='Joining...';
+    fetch(URL_,{method:'POST',headers:{'apikey':KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({email:v,source:'join-page'})})
+    .then(function(r){
+      if(r.ok||r.status===409){done();return}
+      throw new Error('bad')
+    }).catch(function(){
+      err.textContent='Something went wrong. Please try again.';
+    }).then(function(){go.disabled=false;go.textContent='Get the free template'});
+  });
+})();
+</script>
+</body>
+</html>
